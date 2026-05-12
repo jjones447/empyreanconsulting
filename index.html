@@ -1,10 +1,724 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Empyrean Consulting</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Empyrean Consulting — Enterprise AI &amp; Technology Practice</title>
+<meta name="description" content="Independent technology practice helping organizations close the gap between AI strategy and execution. AI Strategy &amp; Enablement, Enterprise Architecture, and Operating Model.">
+
+<meta property="og:title" content="Empyrean Consulting">
+<meta property="og:description" content="Anyone can turn AI on. Getting it to deliver is a different problem.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://empyreanconsulting.com">
+
+<link rel="icon" type="image/png" href="assets/logo-gear.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #0f172a;
+    --primary: #1e3a8a;
+    --accent: #2563eb;
+    --steel: #475569;
+    --mid: #64748b;
+    --soft: #94a3b8;
+    --rule: #e2e8f0;
+    --paper: #ffffff;
+    --paper-2: #f8fafc;
+    --paper-3: #f1f5f9;
+    --max-width: 1180px;
+    --content-width: 760px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  nav .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .brand img {
+    height: 38px;
+    width: auto;
+    display: block;
+  }
+  .brand-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: var(--primary);
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+  .brand-text .sub {
+    color: var(--steel);
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 2px;
+    display: block;
+  }
+  .nav-links { display: flex; gap: 36px; }
+  .nav-links a {
+    color: var(--steel);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .brand-text { font-size: 13px; }
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 110px 32px;
+    border-bottom: 1px solid var(--rule);
+  }
+  section:last-of-type { border-bottom: none; }
+  .container { max-width: var(--max-width); margin: 0 auto; }
+  .content-narrow { max-width: var(--content-width); }
+
+  /* HERO */
+  .hero {
+    padding: 130px 32px 110px;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+    border-bottom: 2px solid var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    right: -200px;
+    top: -100px;
+    width: 600px;
+    height: 600px;
+    background-image: url('assets/logo-gear.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.05;
+    z-index: 0;
+  }
+  .hero .container { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 32px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 6vw, 68px);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    margin-bottom: 32px;
+    color: var(--ink);
+    max-width: 900px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .hero-sub {
+    font-size: 19px;
+    color: var(--mid);
+    max-width: 620px;
+    line-height: 1.6;
+    margin-bottom: 48px;
+  }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; }
+  .hero-meta .pill {
+    padding: 8px 16px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 100px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--steel);
+    font-weight: 500;
+  }
+
+  /* SECTION LABELS */
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 80px;
+  }
+
+  /* THESIS */
+  .thesis h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 32px;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+  }
+  .thesis p {
+    font-size: 18px;
+    color: var(--mid);
+    margin-bottom: 22px;
+    line-height: 1.75;
+  }
+  .thesis p strong { color: var(--ink); font-weight: 600; }
+
+  /* PILLARS */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 64px;
+  }
+  @media (max-width: 820px) {
+    .pillars-grid { grid-template-columns: 1fr; gap: 24px; }
+  }
+  .pillar {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent);
+    padding: 32px 28px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .pillar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  }
+  .pillar-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--rule);
+    line-height: 0.9;
+    margin-bottom: 16px;
+  }
+  .pillar h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--primary);
+    line-height: 1.25;
+  }
+  .pillar p { font-size: 15px; color: var(--mid); line-height: 1.65; }
+
+  /* APPROACH */
+  .approach { background: var(--paper-2); }
+  .approach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 48px;
+  }
+  @media (max-width: 820px) { .approach-grid { grid-template-columns: 1fr; gap: 48px; } }
+  .approach h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 22px;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+  }
+  .approach-intro { font-size: 17px; color: var(--mid); line-height: 1.7; }
+  .approach-principle { margin-bottom: 36px; }
+  .approach-principle:last-child { margin-bottom: 0; }
+  .approach-principle h4 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .approach-principle p { font-size: 15.5px; color: var(--mid); line-height: 1.65; }
+  .approach-divider {
+    width: 24px;
+    height: 2px;
+    background: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  /* WHO */
+  .who h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 28px;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+  }
+  .who-intro {
+    font-size: 17px;
+    color: var(--mid);
+    margin-bottom: 48px;
+    line-height: 1.7;
+    max-width: 720px;
+  }
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid var(--rule);
+  }
+  @media (max-width: 640px) { .who-grid { grid-template-columns: 1fr; } }
+  .who-item {
+    padding: 22px 28px 22px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .who-item:nth-child(even) { padding-left: 28px; padding-right: 0; }
+  .who-item::before {
+    content: '';
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-top: 10px;
+  }
+  @media (max-width: 640px) {
+    .who-item, .who-item:nth-child(even) { padding: 18px 0; }
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 64px;
+    align-items: start;
+    margin-top: 48px;
+  }
+  @media (max-width: 820px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .about-card {
+    background: var(--primary);
+    background-image: linear-gradient(160deg, var(--primary) 0%, var(--ink) 100%);
+    color: #fff;
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-card::before {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    right: -80px;
+    width: 240px;
+    height: 240px;
+    background-image: url('assets/logo-gear.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+  }
+  .about-card-content { position: relative; z-index: 1; }
+  .about-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #fff;
+  }
+  .about-card .role {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 28px;
+  }
+  .about-card .stat-block { margin-bottom: 22px; }
+  .about-card .stat-block:last-child { margin-bottom: 0; }
+  .about-card .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 900;
+    line-height: 1;
+    color: #fff;
+  }
+  .about-card .stat-label {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+  .about-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 22px;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+  }
+  .about-text p {
+    font-size: 17px;
+    color: var(--mid);
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+  .about-text p strong { color: var(--ink); font-weight: 600; }
+
+  /* CTA */
+  .cta {
+    background: var(--ink);
+    background-image: linear-gradient(135deg, var(--ink) 0%, var(--primary) 100%);
+    color: var(--paper);
+    border: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta::before {
+    content: '';
+    position: absolute;
+    right: -150px;
+    bottom: -150px;
+    width: 500px;
+    height: 500px;
+    background-image: url('assets/logo-gear.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.07;
+  }
+  .cta .container { position: relative; z-index: 1; }
+  .cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 50px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 28px;
+    color: #fff;
+    letter-spacing: -1px;
+    max-width: 800px;
+  }
+  .cta h2 em {
+    color: #93c5fd;
+    font-style: italic;
+    font-weight: 400;
+  }
+  .cta p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.75);
+    max-width: 620px;
+    line-height: 1.65;
+    margin-bottom: 40px;
+  }
+  .cta-button {
+    display: inline-block;
+    background: #fff;
+    color: var(--primary);
+    padding: 18px 36px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  }
+  .cta-button:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+  .cta-meta {
+    margin-top: 32px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--paper-2);
+    padding: 56px 32px 40px;
+    border-top: 1px solid var(--rule);
+  }
+  footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .footer-brand { display: flex; align-items: center; gap: 14px; }
+  .footer-brand img { height: 40px; width: auto; }
+  .footer-brand-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.3;
+  }
+  .footer-brand-text .sub {
+    color: var(--steel);
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 2px;
+    display: block;
+  }
+  .footer-meta {
+    font-size: 12px;
+    color: var(--soft);
+    letter-spacing: 0.5px;
+    text-align: right;
+    line-height: 1.9;
+  }
+  .footer-meta a { color: var(--steel); text-decoration: none; }
+  .footer-meta a:hover { color: var(--accent); }
+  @media (max-width: 640px) {
+    footer .container { flex-direction: column; align-items: flex-start; }
+    .footer-meta { text-align: left; }
+  }
+</style>
 </head>
+
 <body>
-  <h1>Empyrean Consulting</h1>
-  <p>Coming soon.</p>
+
+<nav>
+  <div class="container">
+    <a href="#top" class="brand">
+      <img src="assets/logo-gear.png" alt="Empyrean Consulting">
+      <span class="brand-text">Empyrean<span class="sub">Consulting</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#thesis">Thesis</a>
+      <a href="#approach">Approach</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-eyebrow">Enterprise AI &amp; Technology Practice</div>
+    <h1>Anyone can turn AI on.<br>Getting it to <em>deliver</em> is a different problem.</h1>
+    <p class="hero-sub">
+      Independent technology practice for organizations that are serious about AI, and serious about the architectural and organizational work it takes to make it real.
+    </p>
+    <div class="hero-meta">
+      <span class="pill">AI Strategy &amp; Enablement</span>
+      <span class="pill">Enterprise Architecture</span>
+      <span class="pill">Operating Model</span>
+    </div>
+  </div>
+</section>
+
+<section class="thesis" id="thesis">
+  <div class="container content-narrow">
+    <div class="section-label">The Thesis</div>
+    <h2>Most AI programs stall in the gap between strategy and execution.</h2>
+    <p>
+      Not because the technology failed. Because the organization wasn't ready for what comes next: the integration complexity, the data quality gaps, the absence of anyone who can hold strategy and execution at the same time and keep both honest.
+    </p>
+    <p>
+      <strong>The thing missing for AI is the thing that's been missing all along:</strong> the enterprise, business, data, and organizational architecture that creates cohesion across siloed efforts. AI does require new architectural treatment. Orchestration, context delivery, runtime governance for systems that act on their own. These layers are real and they are emerging quickly. They sit on top of and depend on the foundational disciplines underneath, rather than replacing them.
+    </p>
+    <p>
+      AI as a productivity tool is not the same as AI as an organizational capability. The first is an IT decision. The second is an architecture, leadership, and change problem, which is where the real work lives.
+    </p>
+
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <h3>AI Strategy &amp; Enablement</h3>
+        <p>Where AI actually fits in the business, and where it doesn't. Strategy, prioritization, governance, platform direction, and the enablement work that turns intent into capability. Not vendor recommendations dressed up as strategy.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <h3>Enterprise Architecture</h3>
+        <p>The foundation most organizations don't have, and the reason most programs stall. Lightweight, practical enterprise and business architecture that creates cohesion across siloed efforts and connects roadmap to execution.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <h3>Operating Model</h3>
+        <p>Structure, collaboration, and change absorption. How the organization is designed for AI, how cross-functional work actually happens, and how quickly the organization can absorb new capabilities. The work that determines whether anything scales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="approach" id="approach">
+  <div class="container content-narrow">
+    <div class="section-label">How I Work</div>
+    <div class="approach-grid">
+      <div>
+        <h2>A different kind of practice.</h2>
+        <p class="approach-intro">
+          Most AI consulting today falls into one of two patterns: engineers who can't credibly advise the business, or strategists who hand off a roadmap and leave. The work I do sits between them, and answers to outcomes, not deliverables.
+        </p>
+      </div>
+      <div>
+        <div class="approach-principle">
+          <div class="approach-divider"></div>
+          <h4>You work directly with me.</h4>
+          <p>No senior name on the proposal and a junior consultant doing the actual thinking. The trade-off is honest: fewer engagements at a time, full attention on each. When the work needs additional hands, I bring in trusted partners rather than building a bench to staff.</p>
+        </div>
+        <div class="approach-principle">
+          <div class="approach-divider"></div>
+          <h4>I stay accountable past the deliverable.</h4>
+          <p>Most engagements end with a document. Mine end when the outcome is real. That usually means staying engaged through the parts that get hard.</p>
+        </div>
+        <div class="approach-principle">
+          <div class="approach-divider"></div>
+          <h4>I build internal capability, not dependency.</h4>
+          <p>The architectural foundation can't be purchased as a deliverable. In mid-market environments especially, engagements should leave the internal team stronger than they were, with the muscle to operate the architecture and evolve it. Capability transfer is part of the work, not an add-on.</p>
+        </div>
+        <div class="approach-principle">
+          <div class="approach-divider"></div>
+          <h4>I tell you when you're wrong.</h4>
+          <p>Politely, with context, but I tell you. You're not paying me to validate decisions you've already made. You're paying me for perspective that comes from having seen this before.</p>
+        </div>
+        <div class="approach-principle">
+          <div class="approach-divider"></div>
+          <h4>I don't sell software.</h4>
+          <p>No vendor partnerships. No referral fees. No preferred platforms I'm quietly compensated to recommend. The only thing I'm selling is judgment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="who" id="who">
+  <div class="container content-narrow">
+    <div class="section-label">Who I Work With</div>
+    <h2>Organizations with real complexity, and leadership that wants a counterpart, not a vendor.</h2>
+    <p class="who-intro">
+      I work best when the technology problem and the organizational problem are equally real. If your situation has been hard to articulate, that's usually where I'm most useful.
+    </p>
+    <div class="who-grid">
+      <div class="who-item">Organizations with AI investment and no clear path to scale</div>
+      <div class="who-item">Leadership teams that need someone to own the outcome, not just advise on it</div>
+      <div class="who-item">Companies where systems complexity is blocking real progress</div>
+      <div class="who-item">Businesses with fragmented platforms and no coherent architecture</div>
+      <div class="who-item">PE-backed organizations navigating rapid transformation</div>
+      <div class="who-item">Executives who need a trusted counterpart, not another vendor</div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container content-narrow">
+    <div class="section-label">About</div>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-card-content">
+          <h3>Jacob Jones</h3>
+          <div class="role">Principal · Empyrean Consulting</div>
+          <div class="stat-block">
+            <div class="stat-num">15+</div>
+            <div class="stat-label">Years Leading Enterprise Technology Transformation</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-num">7+</div>
+            <div class="stat-label">Industries: Manufacturing, Retail, Healthcare, Financial Services, and More</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <h2>Background</h2>
+        <p>
+          I've spent the last decade-plus leading enterprise transformation across manufacturing, retail, healthcare, financial services, and other industries. The constant: turning fragmented environments into coherent ones, and aligning technology to business outcomes rather than the other way around.
+        </p>
+        <p>
+          That range matters. Most transformation challenges are more similar across industries than people assume, and having seen them play out in different contexts helps me cut to what actually matters faster.
+        </p>
+        <p>
+          What I bring to engagements is the combination of executive-level perspective, architectural depth, and the technical credibility to evaluate platforms and validate direction. <strong>I'm not the right fit for every situation. I work best where the technology problem and the organizational problem are equally real.</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="container content-narrow">
+    <h2>If this sounds like the kind of conversation you've been wanting to have, <em>let's have it.</em></h2>
+    <p>
+      A 45-minute discovery call. No pitch, no slides. A real conversation about where you are and where you want to go. If there's a fit, we'll talk about what an engagement might look like.
+    </p>
+    <a href="mailto:jacob.jones@empyreanconsulting.com?subject=Empyrean%20Consulting%20%E2%80%94%20Discovery%20Conversation" class="cta-button">Start a Conversation →</a>
+    <div class="cta-meta">Empyrean Consulting · Milwaukee, WI · 414-305-8401</div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-brand">
+      <img src="assets/logo-gear.png" alt="Empyrean Consulting">
+      <div class="footer-brand-text">
+        Empyrean<span class="sub">Consulting</span>
+      </div>
+    </div>
+    <div class="footer-meta">
+      <a href="mailto:jacob.jones@empyreanconsulting.com">jacob.jones@empyreanconsulting.com</a> · 414-305-8401<br>
+      © Empyrean Consulting · Milwaukee, WI
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
