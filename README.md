@@ -1,6 +1,6 @@
 # Empyrean Consulting — Website
 
-Static single-page site for empyreanconsulting.com. Hosted on GitHub Pages.
+Static consulting site for empyreanconsulting.com, with internal-integration information and privacy pages. Hosted on GitHub Pages.
 
 ---
 
@@ -8,7 +8,10 @@ Static single-page site for empyreanconsulting.com. Hosted on GitHub Pages.
 
 | File | Purpose |
 |---|---|
-| `index.html` | The entire site — HTML, CSS, content in one file. Edit here to change anything. |
+| `index.html` | Consulting homepage, with its existing inline styles. |
+| `integrations/index.html` | Public information about the internal Google integrations and their separate purposes. |
+| `integrations/privacy/index.html` | Integration-specific Google-data privacy disclosures. |
+| `assets/integrations.css` | Shared styles for the two integration pages. |
 | `CNAME` | Tells GitHub Pages to serve the site from `empyreanconsulting.com`. Do not rename or delete. |
 | `README.md` | This file. |
 
