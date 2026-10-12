@@ -11,6 +11,9 @@ Static consulting site for empyreanconsulting.com, with internal-integration inf
 | `index.html` | Consulting homepage, with its existing inline styles. |
 | `integrations/index.html` | Public information about the internal Google integrations and their separate purposes. |
 | `integrations/privacy/index.html` | Integration-specific Google-data privacy disclosures. |
+| `integrations/quickbooks/index.html` | EVI EIP Books overview and support. |
+| `integrations/quickbooks/privacy/index.html` | EVI QuickBooks privacy notice. |
+| `integrations/quickbooks/terms/index.html` | EVI QuickBooks use terms. |
 | `assets/integrations.css` | Shared styles for the two integration pages. |
 | `CNAME` | Tells GitHub Pages to serve the site from `empyreanconsulting.com`. Do not rename or delete. |
 | `README.md` | This file. |
