@@ -45,66 +45,45 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* NAV */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--rule);
-  }
-  nav .container {
+  /* Site navigation mirrors the homepage; section links stay local to About. */
+  .site-header { background: #fff; border-bottom: 1px solid #ced8d7; }
+  .site-header .container {
     max-width: var(--max-width);
+    min-height: 88px;
     margin: 0 auto;
-    padding: 18px 32px;
+    padding: 16px 32px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
+    gap: 28px;
   }
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
+  .site-header .brand { display: inline-flex; align-items: center; gap: 12px; color: #152628; font: 800 17px/1.05 Arial, Helvetica, sans-serif; text-decoration: none; white-space: nowrap; }
+  .site-header .brand img { width: 42px; height: 42px; object-fit: contain; }
+  .site-header .brand small { display: block; color: #496061; font-size: 11px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; }
+  .site-header nav { display: flex; align-items: center; gap: clamp(16px, 2.3vw, 32px); }
+  .site-header nav a { color: #152628; font: 700 13px/1.6 Arial, Helvetica, sans-serif; text-decoration: none; }
+  .site-header nav a:hover { color: #0e665f; text-decoration: underline; text-underline-offset: 5px; }
+  .site-header .nav-contact { border: 1px solid #152628; padding: 10px 14px; }
+  .site-header .nav-contact span { margin-left: 7px; }
+  .site-header a:focus-visible, .section-nav a:focus-visible { outline: 3px solid #d56a50; outline-offset: 4px; }
+  .section-nav { position: sticky; top: 0; z-index: 100; background: rgba(248, 250, 252, .96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--rule); }
+  .section-nav .container { max-width: var(--max-width); margin: 0 auto; padding: 11px 32px; display: flex; align-items: center; gap: 32px; }
+  .section-nav strong { color: var(--primary); font-size: 12px; white-space: nowrap; }
+  .section-nav .nav-links { display: flex; align-items: center; gap: 28px; overflow-x: auto; }
+  .section-nav a { color: var(--steel); font-size: 12px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+  .section-nav a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 5px; }
+  @media (max-width: 900px) {
+    .site-header .container { align-items: flex-start; flex-direction: column; gap: 14px; }
+    .site-header nav { width: 100%; flex-wrap: wrap; gap: 8px 18px; }
+    .site-header nav a { padding-block: 6px; }
+    .site-header .nav-contact { border: 0; padding-inline: 0; }
   }
-  .brand img {
-    height: 38px;
-    width: auto;
-    display: block;
-  }
-  .brand-text {
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: 1px;
-    color: var(--primary);
-    text-transform: uppercase;
-    line-height: 1.2;
-  }
-  .brand-text .sub {
-    color: var(--steel);
-    font-weight: 400;
-    font-size: 11px;
-    letter-spacing: 2px;
-    display: block;
-  }
-  .nav-links { display: flex; gap: 36px; }
-  .nav-links a {
-    color: var(--steel);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    transition: color 0.2s ease;
-  }
-  .nav-links a:hover { color: var(--accent); }
-
-  @media (max-width: 700px) {
-    .nav-links { display: none; }
-    .brand-text { font-size: 13px; }
+  @media (max-width: 650px) {
+    .site-header .container, .section-nav .container { padding-inline: 18px; }
+    .site-header nav { gap: 5px 16px; }
+    .site-header nav a { font-size: 12px; }
+    .section-nav .container { gap: 18px; }
+    .section-nav .nav-links { gap: 20px; }
   }
 
   /* SECTIONS */
@@ -131,7 +110,7 @@
     top: -100px;
     width: 600px;
     height: 600px;
-    background-image: url('assets/logo-gear.png');
+    background-image: url('../assets/logo-gear.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -366,7 +345,7 @@
     right: -80px;
     width: 240px;
     height: 240px;
-    background-image: url('assets/logo-gear.png');
+    background-image: url('../assets/logo-gear.png');
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.1;
@@ -436,7 +415,7 @@
     bottom: -150px;
     width: 500px;
     height: 500px;
-    background-image: url('assets/logo-gear.png');
+    background-image: url('../assets/logo-gear.png');
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.07;
@@ -538,12 +517,25 @@
 
 <body>
 
-<nav>
+<header class="site-header">
   <div class="container">
     <a href="../" class="brand">
-      <img src="../assets/logo-gear.png" alt="Empyrean Consulting">
-      <span class="brand-text">Empyrean<span class="sub">Consulting</span></span>
+      <img src="../assets/logo-gear.png" alt="" width="42" height="42">
+      <span>Empyrean<small>Consulting</small></span>
     </a>
+    <nav aria-label="Main navigation">
+      <a href="../#capabilities">Capabilities</a>
+      <a href="../#approach">Approach</a>
+      <a href="./" aria-current="page">About</a>
+      <a href="../integrations/">Integrations</a>
+      <a class="nav-contact" href="../#contact">Contact <span aria-hidden="true">&#8599;</span></a>
+    </nav>
+  </div>
+</header>
+
+<nav class="section-nav" aria-label="About page sections">
+  <div class="container">
+    <strong>In this page</strong>
     <div class="nav-links">
       <a href="#thesis">Thesis</a>
       <a href="#approach">Approach</a>
