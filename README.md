@@ -1,6 +1,6 @@
-# Empyrean Consulting website
+# Empyrean LLC website
 
-Static source for `https://empyreanconsulting.com/`. The root page presents the software-development practice; the previous consulting page is retained at `/about/`.
+Static source for `https://empyreanconsulting.com/`. The root and `/about/` pages present Empyrean LLC; the previous consulting page is retained at `/consulting/`.
 
 ## Current hosting
 
@@ -13,7 +13,8 @@ Cloudflare account access does not mean this site is deployed on Cloudflare Page
 | Path | Purpose |
 | --- | --- |
 | `index.html` | Software-development homepage. |
-| `about/index.html` | Preserved consulting practice page, with links adjusted for its new location. |
+| `about/index.html` | Empyrean LLC company overview. |
+| `consulting/index.html` | Preserved consulting practice page and its local section navigation. |
 | `assets/site.css` | Homepage styling. |
 | `assets/logo-gear.png`, `assets/logo-full.png` | Existing brand assets. |
 | `integrations/index.html` | Internal Google integration information and links to separate QuickBooks pages. |
@@ -27,4 +28,4 @@ The QuickBooks integration pages identify Empyrean LLC as publisher and EVI as t
 
 ## Draft review
 
-Open `index.html` and `about/index.html` directly for a source-level preview where the local browser permits it. Relative links are used throughout. Check desktop and mobile widths, keyboard navigation, About content, and all integration links before approving a merge. Do not edit the published integration policy pages as a side effect of a homepage change.
+Open `index.html`, `about/index.html`, and `consulting/index.html` directly for a source-level preview where the local browser permits it. Relative links are used throughout. Check desktop and mobile widths, keyboard navigation, both About and Consulting content, and all integration links before approving a merge. Do not edit the published integration policy pages as a side effect of a homepage change.
