@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <title>XIP Books Connect | Empyrean Integrations</title>
+  <link rel="icon" type="image/png" href="../../../assets/logo-gear.png">
+  <link rel="stylesheet" href="../../../assets/integrations.css">
+</head>
+<body>
+  <main id="main">
+    <p class="eyebrow">Empyrean Integrations</p>
+    <h1>Finishing the QuickBooks connection</h1>
+    <p class="lead" id="status">Returning to XIP on this computer&hellip;</p>
+    <p>This page only hands the one-time QuickBooks authorization back to the XIP connection running on the administrator's own computer. It stores nothing.</p>
+  </main>
+  <script>
+    // Forward Intuit's one-time authorization to the attended loopback listener (fixed target).
+    (function () {
+      var query = window.location.search;
+      if (/[?&]state=/.test(query) && (/[?&]code=/.test(query) || /[?&]error=/.test(query))) {
+        window.location.replace("http://localhost:8781/callback" + query);
+      } else {
+        document.getElementById("status").textContent = "Nothing to finish here.";
+      }
+    })();
+  </script>
+</body>
+</html>
